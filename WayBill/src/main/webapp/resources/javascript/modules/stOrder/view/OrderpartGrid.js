@@ -34,7 +34,7 @@ Ext.define('StOrderModule.view.OrderpartGrid', {
                 dataIndex: 'partdesc'
             }, {
                 header: '运单号',
-                width: 140,
+                width: 160,
                 dataIndex: 'orderno'
             },  {
                 header: '包装数',

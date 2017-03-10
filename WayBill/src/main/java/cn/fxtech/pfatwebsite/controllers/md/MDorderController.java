@@ -44,6 +44,7 @@ public class MDorderController {
 	 */
 	@RequestMapping(value = "createdOrderList")
 	public Object createdOrderList(String dtype) {
+		log.debug(dtype);
 		List<MDorder> list = orderService.findCreatedOrder(dtype);
 		
 		Map<String, Object> map = new HashMap<String, Object>();

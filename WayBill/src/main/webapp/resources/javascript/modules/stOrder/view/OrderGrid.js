@@ -15,7 +15,7 @@ Ext.define('StOrderModule.view.OrderGrid', {
         dataIndex: 'ordertype'
     }, {
         header: '运单号',
-        width: 120,
+        width: 160,
         dataIndex: 'orderno'
     }, {
         header: '发货时间',
