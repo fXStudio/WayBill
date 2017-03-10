@@ -1,0 +1,77 @@
+[{
+    "text": "发货看板功能", 
+    "cls": "folder",
+    "expanded": true,
+    "children": [{
+    	"text": "准时化", 
+	    "cls": "folder",
+	    "expanded": true,
+	    "children": [
+	    	{
+		    	"sn": "node_1",
+		        "text": "配货单状态查询",
+		        "url": "mdCarbill",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_2",
+		        "text": "整车发货",
+		        "url": "mdCarpageno",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_3",
+		        "text": "发货看板",
+		        "url": "content",
+		        "leaf": true
+		    }
+	    ]
+    }, {
+    	"text": "运单", 
+	    "cls": "folder",
+	    "expanded": true,
+	    "children": [
+	    	{
+		    	"sn": "node_4",
+		        "text": "运单维护",
+		        "url": "mdOrder",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_5",
+		        "text": "扫描装车",
+		        "url": "scanClient",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_11",
+		        "text": "运单看板",
+		        "url": "stOrder",
+		        "leaf": true
+		    }
+	    ]
+    }, {
+    	"text": "基础数据", 
+	    "cls": "folder",
+	    "expanded": true,
+	    "children": [
+	    	{
+		    	"sn": "node_7",
+		        "text": "车号维护",
+		        "url": "mdCarInfo",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_8",
+		        "text": "门号维护",
+		        "url": "mdDoor",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_9",
+		        "text": "看板零件号维护",
+		        "url": "mdPartinfo",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_10",
+		        "text": "客户类型维护",
+		        "url": "mdDestination",
+		        "leaf": true
+		    }
+	    ]
+    }]
+}]

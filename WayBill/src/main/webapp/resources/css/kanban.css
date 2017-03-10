@@ -1,0 +1,10 @@
+body, .panel-default {background-color: black; color: white;border:none;font-weight:bolder;margin:-20px 0px 0px 0px;}
+.kanban-col{padding:0px 30px;}
+.jumbotron{color: black;font-size: 70pt;font-weight: bolder;}
+.jumbotron h3{font-size: 40pt;color:blue;}
+.panel-heading {padding:0px;margin-top:20px;}
+.panel-body{font-size:30pt;padding-left:3px;}
+.doorno{color:green;font-size:60pt;}
+.car-info, .date-info{font-size:24pt;}
+.car-info{color:white;margin-top:20px;}
+.date-info{color:yellow;margin-top:-12px;}
