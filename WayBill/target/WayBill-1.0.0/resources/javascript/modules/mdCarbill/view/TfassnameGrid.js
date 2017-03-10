@@ -3,7 +3,7 @@ Ext.define('MdCarbillModule.view.TfassnameGrid', {
 	alias: 'widget.tfassnamegrid',
 
     multiSelect: true,
-    minHeight: 200,
+    cls: 'partType',
 	
     columns: [{
         header: '零件类型',

@@ -10,15 +10,15 @@ Ext.define('MdCarbillModule.view.MdCarbillGrid', {
         dataIndex: 'cpageno'
     }, {
         header: '零件名称',
-        width: 200,
+        width: 140,
         dataIndex: 'name'
     }, {
         header: '编码',
-        width: 50,
+        width: 70,
         dataIndex: 'code'
     }, {
         header: '打印时间',
-        width: 140,
+        width: 150,
         dataIndex: 'printdate'
     }, {
         header: '扫描完成时间',

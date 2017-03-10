@@ -36,7 +36,12 @@
 		        "leaf": true
 		    }, {
 		    	"sn": "node_5",
-		        "text": "扫描装车",
+		        "text": "扫描装车  (本地)",
+		        "url": "scanLocalClient",
+		        "leaf": true
+		    }, {
+		    	"sn": "node_12",
+		        "text": "扫描装车  (外埠)",
 		        "url": "scanClient",
 		        "leaf": true
 		    }, {

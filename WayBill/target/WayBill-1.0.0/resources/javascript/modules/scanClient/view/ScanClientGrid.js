@@ -30,7 +30,7 @@ Ext.define('ScanClientModule.view.ScanClientGrid', {
         Ext.apply(this, {
             store: store,
             bbar: Ext.create('Ext.toolbar.Toolbar', {
-                items: ['->',  '查询运单',{
+                items: ['<strong>(外埠)</strong>', '->',  '查询运单',{
 	                xtype: 'textfield',
 	                id: 'searchField',
 	                selectOnFocus: true,

@@ -23,5 +23,20 @@ Ext.define('MdDestinationModule.view.MdDestinationForm', {
         maxLength: 7,
         selectOnFocus: true,
         allowBlank: false
-    }]
+    }, Ext.create('Ext.form.ComboBox', {
+        fieldLabel: '描述',
+        labelWidth: 50, // label的默认宽度
+        labelAlign: 'right',
+        store: Ext.create('Ext.data.Store', {
+        	autoLoad: true,
+            fields: ['id', 'name'],
+            data : [
+                {"id": "1", "name": "长春"},
+                {"id": "2", "name": "外埠"}
+            ]
+        }),
+        name: 'dtype',
+        displayField: 'name',
+        valueField: 'name'
+    })]
 });

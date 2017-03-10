@@ -12,6 +12,6 @@ public interface MDdestinationMapper extends Mapper<MDdestination> {
 	@Select("SELECT * FROM terminal_destination")
 	public List<MDdestination> findAll();
 
-	@Insert("INSERT INTO terminal_destination (destination) VALUES (#{destination})")
+	@Insert("INSERT INTO terminal_destination (destination, dtype) VALUES (#{destination}, #{dtype})")
 	public int insertRecord(MDdestination dest);
 }

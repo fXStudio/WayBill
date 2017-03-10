@@ -95,3 +95,12 @@ tr.x-grid-row td {
 	top: 0px;
 	left: 0px;
 }
+.partType  td {
+	height: 40px;
+	font-size:11pt;
+	font-weight: bolder;
+}
+
+.partType  td * {
+	padding-top:13px;
+}

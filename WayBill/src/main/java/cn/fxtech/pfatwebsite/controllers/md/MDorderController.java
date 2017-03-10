@@ -43,8 +43,8 @@ public class MDorderController {
 	 * @return
 	 */
 	@RequestMapping(value = "createdOrderList")
-	public Object createdOrderList() {
-		List<MDorder> list = orderService.findCreatedOrder();
+	public Object createdOrderList(String dtype) {
+		List<MDorder> list = orderService.findCreatedOrder(dtype);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", list.size());// 记录总数

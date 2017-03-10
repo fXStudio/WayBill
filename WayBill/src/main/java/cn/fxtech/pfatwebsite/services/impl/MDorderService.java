@@ -57,7 +57,7 @@ final class MDorderService implements IMDorderService {
 	}
 
 	@Override
-	public List<MDorder> findCreatedOrder() {
-		return orderMapper.findCreatedOrder();
+	public List<MDorder> findCreatedOrder(String dtype) {
+		return orderMapper.findCreatedOrder(dtype);
 	}
 }

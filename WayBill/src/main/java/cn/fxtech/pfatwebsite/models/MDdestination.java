@@ -8,6 +8,7 @@ public class MDdestination {
 	@Id
 	private Integer id;
 	private String destination;
+	private String dtype;
 
 	public Integer getId() {
 		return id;
@@ -23,5 +24,13 @@ public class MDdestination {
 
 	public void setDestination(String destination) {
 		this.destination = destination;
+	}
+
+	public String getDtype() {
+		return dtype;
+	}
+
+	public void setDtype(String dtype) {
+		this.dtype = dtype;
 	}
 }

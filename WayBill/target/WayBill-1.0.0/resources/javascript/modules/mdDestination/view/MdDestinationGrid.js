@@ -17,6 +17,10 @@ Ext.define('MdDestinationModule.view.MdDestinationGrid', {
         header: '名称',
         width: 90,
         dataIndex: 'destination'
+    }, {
+        header: '描述',
+        width: 90,
+        dataIndex: 'dtype'
     }],
 
     /**

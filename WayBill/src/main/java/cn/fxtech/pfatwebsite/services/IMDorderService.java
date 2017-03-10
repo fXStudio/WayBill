@@ -9,5 +9,5 @@ public interface IMDorderService {
 	public List<MDorder> findAll();
 	public FeedBackMessage del(Integer id);
 	public FeedBackMessage addOrUpdate(MDorder order);
-	public List<MDorder> findCreatedOrder();
+	public List<MDorder> findCreatedOrder(String dtype);
 }

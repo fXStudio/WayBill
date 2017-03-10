@@ -34,16 +34,15 @@ Ext.define('MdCarbillModule.controller.MdCarbillController', {
 									buttons : Ext.Msg.OK,
 									icon : Ext.Msg.WARNING
 								});
-						gridPanel.getSelectionModel().deselect(index);
+						gridPanel.getSelectionModel().deselect(index);return;
 					} else  if (record.get("pagenostate") != 1) {
 					     Ext.Msg.confirm('系统提示', '该配货单没有总成匹配，确认装载吗?', function(_btn) {
     						 if (_btn !== "yes") {
-    							   gridPanel.getSelectionModel().deselect(index);
-    						}
+    							   gridPanel.getSelectionModel().deselect(index);return;
+    						} 
 						});
-	    			} else{
-	    				cache.add(record);
 	    			}
+	    			cache.add(record);
 	        		Ext.getDom('selectedCount').innerHTML = cache.getCount();
 	        	},
 	        	deselect: function(obj, record, index) {
