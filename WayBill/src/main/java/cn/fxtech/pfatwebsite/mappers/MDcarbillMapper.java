@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import cn.fxtech.pfatwebsite.models.MDcarbill;
 
 public interface MDcarbillMapper {
-	@Select("SELECT * FROM v_carbill WHERE cdescrip = #{cdescrip} and outdate is null ORDER BY printdate DESC, cast(REPLACE(CODE, '-', '') as int) desc, name")
+	@Select("SELECT * FROM v_carbill WHERE cdescrip = #{cdescrip} and outdate is null ORDER BY printdate, cast(REPLACE(CODE, '-', '') as int), name")
 	public List<MDcarbill> findAll(@Param("cdescrip") String cdescrip);
 
 	@Insert("INSERT INTO CAR_PAGENO(CAR, PAGENO, RECORDDATE, EMP, DOORNO, sequence) VALUES("
