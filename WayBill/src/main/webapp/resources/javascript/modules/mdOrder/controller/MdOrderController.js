@@ -225,12 +225,11 @@ Ext.define('MdOrderModule.controller.MdOrderController', {
       */
 	 onLaunch: function() {
 		    // 获得数据源对象
-		    var me = this, gridPanel = this.getGridPanel(), store = gridPanel.getStore();
-		    store.load();
-
-		    // 设置首行选中
-	        store.on("load", function(obj, records){
+		    var me = this, gridPanel = this.getGridPanel(), partPanel = this.getPartPanel(), store = gridPanel.getStore();
+		    
+		    store.load().on("load", function(obj, records){
 	        	gridPanel.getSelectionModel().deselectAll();
+	        	partPanel.getStore().removeAll();
 	        	Ext.getCmp('addBtn').setDisabled(true);
 	        	
 	        	gridPanel.down('button[action=modify]').setDisabled(!records.length);
