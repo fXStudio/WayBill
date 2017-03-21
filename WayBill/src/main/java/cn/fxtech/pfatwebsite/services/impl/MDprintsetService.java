@@ -17,4 +17,14 @@ public class MDprintsetService implements IMDprintsetService {
 	public List<MDprintset> findAll() {
 		return printsetMapper.findAll();
 	}
+
+	@Override
+	public List<MDprintset> find(Integer groupId) {
+		return printsetMapper.find(groupId);
+	}
+
+	@Override
+	public List<MDprintset> listPrintGroup() {
+		return printsetMapper.listPrintGroup();
+	}
 }

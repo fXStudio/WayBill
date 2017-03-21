@@ -1,17 +1,20 @@
-Ext.define('MdCarbillModule.store.PrintSet', {
+Ext.define('MdTerminalGroupModule.store.GroupItem', {
     extend: 'Ext.data.Store',
-    model: 'MdCarbillModule.model.PrintsetModel',
+    model: 'MdTerminalGroupModule.model.GroupItemModel',
     
     autoLoad: false,
     autoDestroy: true,
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/printgroupList',//请求
+        api: {
+            read: 'services/groupItemList',
+            destroy: 'services/delGroupItem'
+        },
         reader: {
             type: 'json',
             root: 'items',
-            idProperty: 'cdescrip',
+            idProperty: 'id',
             totalProperty: 'totalCount'
         }
     }

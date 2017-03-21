@@ -17,10 +17,34 @@ import cn.fxtech.pfatwebsite.services.IMDprintsetService;
 public class MDprintsetController {
 	private @Autowired IMDprintsetService printsetService;
 
+	@RequestMapping("printgroupList")
+	public Object printgroupList() {
+		
+		List<MDprintset> list = printsetService.listPrintGroup();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("totalCount", list.size());// 记录总数
+		map.put("items", list);// 记录行对象
+		
+		return map;
+	}
+	
 	@RequestMapping("printsetList")
 	public Object printsetList() {
 
 		List<MDprintset> list = printsetService.findAll();
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("totalCount", list.size());// 记录总数
+		map.put("items", list);// 记录行对象
+
+		return map;
+	}
+
+	@RequestMapping("groupItemList")
+	public Object groupItemList(Integer groupId) {
+
+		List<MDprintset> list = printsetService.find(groupId);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", list.size());// 记录总数

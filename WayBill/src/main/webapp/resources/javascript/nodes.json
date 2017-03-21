@@ -67,6 +67,11 @@
 		        "url": "mdDoor",
 		        "leaf": true
 		    }, {
+		    	"sn": "node_13",
+		        "text": "配货单查询分组维护",
+		        "url": "mdTerminalgroup",
+		        "leaf": true
+		    }, {
 		    	"sn": "node_9",
 		        "text": "看板零件号维护",
 		        "url": "mdPartinfo",

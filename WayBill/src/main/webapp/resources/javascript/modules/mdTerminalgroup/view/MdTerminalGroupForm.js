@@ -1,11 +1,11 @@
-Ext.define('MdCarInfoModule.view.MdCarInfoForm', {
+Ext.define('MdTerminalGroupModule.view.MdTerminalGroupForm', {
 	extend: 'Ext.form.Panel',
-	alias: 'widget.mdcarinfoform',
+	alias: 'widget.mdterminalgroupform',
 	
     border: false, // 不显示边线
     defaults: { // 组件的默认样式配置
     	xtype: 'textfield',
-        labelWidth: 70, // label的默认宽度
+        labelWidth: 50, // label的默认宽度
         labelAlign: 'right',
         cls: 'fxstudio-window-inner-margin3',
         labelStyle: 'margin-top:5px;',
@@ -17,16 +17,15 @@ Ext.define('MdCarInfoModule.view.MdCarInfoForm', {
         hidden: true,
         hideLabel: true
     }, {
-        id: 'car',
-        fieldLabel: '车牌号',
-        name: 'car',
-        maxLength: 15,
+        id: 'name',
+        fieldLabel: '名称',
+        name: 'groupName',
         selectOnFocus: true,
         allowBlank: false
     }, {
-        fieldLabel: '备注',
+        fieldLabel: '描述',
         name: 'remark',
         selectOnFocus: true,
-        allowBlank: false
+        allowBlank: true
     }]
 });
