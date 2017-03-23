@@ -83,5 +83,23 @@
 		        "leaf": true
 		    }
 	    ]
+    }, {
+        "text": "统计报表", 
+        "cls": "folder",
+        "expanded": true,
+        "children": [
+            {
+                "sn": "node_14",
+                "text": "发货报表",
+                "url": "stSender",
+                "leaf": true
+            },
+            {
+                "sn": "node_15",
+                "text": "发货趟次报表",
+                "url": "stSenderTimes",
+                "leaf": true
+            }
+        ]
     }]
 }]

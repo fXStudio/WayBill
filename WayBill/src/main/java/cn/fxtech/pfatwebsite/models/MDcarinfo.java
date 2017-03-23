@@ -12,6 +12,15 @@ public class MDcarinfo {
 	private Integer id;
 	private String car;
 	private String remark;
+	private String destination;
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
 
 	public Integer getId() {
 		return id;

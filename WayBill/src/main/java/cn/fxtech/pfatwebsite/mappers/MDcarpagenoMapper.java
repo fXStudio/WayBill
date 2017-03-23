@@ -14,7 +14,7 @@ public interface MDcarpagenoMapper {
 	@Select("SELECT car, max(recorddate) recorddate, doorno FROM car_pageno WHERE outrecorddate is null GROUP BY car, doorno ORDER BY recorddate")
 	public List<MDcarpageno> findAllCar();
 
-	@Select("SELECT cpageno pageno, doorno, cardate recorddate, name, code FROM v_carbill WHERE car = #{car} AND outpnostate is null")
+	@Select("SELECT cpageno pageno, doorno, cardate recorddate, name, code FROM v_carbill WHERE car = #{car} AND outpnostate is null order by cast(REPLACE(CODE, '-', '') as int)")
 	public List<MDcarpageno> findPartByCar(String car);
 	
 	@Select("select partname partno, COUNT(id) partcount from dbo.pageno_part where exists ("

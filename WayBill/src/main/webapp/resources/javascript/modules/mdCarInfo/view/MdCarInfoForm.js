@@ -20,7 +20,12 @@ Ext.define('MdCarInfoModule.view.MdCarInfoForm', {
         id: 'car',
         fieldLabel: '车牌号',
         name: 'car',
-        maxLength: 15,
+        maxLength: 7,
+        selectOnFocus: true,
+        allowBlank: false
+    }, {
+        fieldLabel: '目的地',
+        name: 'destination',
         selectOnFocus: true,
         allowBlank: false
     }, {
