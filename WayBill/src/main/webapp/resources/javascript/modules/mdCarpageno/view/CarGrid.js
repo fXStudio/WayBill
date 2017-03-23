@@ -38,8 +38,13 @@ Ext.define('MDCarpagenoModule.view.CarGrid', {
         Ext.apply(this, {
             store: store,
             tbar: Ext.create('Ext.toolbar.Toolbar', {
-                items: ['->', {
+                items: [{
+                    text: '打印运单',
+                    iconCls: 'printer',
+                    action: 'print'
+                },'->', {
                     text: '确认发货',
+                    iconCls: 'commit_ok',
                     action: 'submit'
                 }, '|',  {
                     text: '撤销装载',

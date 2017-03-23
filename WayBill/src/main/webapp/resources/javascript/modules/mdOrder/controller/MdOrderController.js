@@ -44,7 +44,7 @@ Ext.define('MdOrderModule.controller.MdOrderController', {
 	        		var gridPanel = this.getGridPanel(),  partPanel = this.getPartPanel(),  parts = [];
 	        		
 	        		partPanel.getStore().each(function(record, index) {record.data.id = index + 1;  parts.push(record.data); });
-                    Ext.getDom('JrPrt').printMethod(
+                    Ext.getDom('JrPrt').printKanban(
                     		JSON.stringify(gridPanel.getSelectionModel().getLastSelected().data), 
                     		JSON.stringify(parts)
             		);

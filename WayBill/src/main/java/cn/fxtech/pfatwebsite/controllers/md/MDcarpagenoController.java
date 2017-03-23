@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.fxtech.pfatwebsite.caches.KeyUtil;
 import cn.fxtech.pfatwebsite.models.MDcarpageno;
+import cn.fxtech.pfatwebsite.models.MDcontainerpart;
 import cn.fxtech.pfatwebsite.services.IMDcarpagenoService;
 
 /**
@@ -56,6 +57,22 @@ public class MDcarpagenoController {
 		map.put("items", list);// 记录行对象
 
 		log.debug("Car has parts : " + map.get("totalCount"));
+
+		return map;
+	}
+	
+	/**
+	 * @return
+	 */
+	@RequestMapping(value = "containerPartList")
+	public Object containerPartList(@RequestParam(value = "car", defaultValue = "-1") String car) {
+		List<MDcontainerpart> list = carpagenoService.findContainerPartByCar(car);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("totalCount", list.size());// 记录总数
+		map.put("items", list);// 记录行对象
+
+		log.debug("Car has container parts : " + map.get("totalCount"));
 
 		return map;
 	}

@@ -13,6 +13,9 @@
 .printer {
     background-image: url(../images/printer.png) !important;
 }
+.commit_ok {
+    background-image: url(../images/commit_ok.png) !important;
+}
 .del {
     background-image: url(../images/del.png) !important;
 }

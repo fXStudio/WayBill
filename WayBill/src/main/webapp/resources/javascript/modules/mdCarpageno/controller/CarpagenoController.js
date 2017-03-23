@@ -2,7 +2,8 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
     extend: 'Ext.app.Controller',
     refs: [
        {ref: 'partGridPanel', selector: 'partgrid'},
-       {ref: 'carGridPanel', selector: 'cargrid'}
+       {ref: 'carGridPanel', selector: 'cargrid'},
+       {ref: 'containerPartGridPanel', selector: 'containerpartgrid'}
     ],
     
     // Cotroller的业务处理
@@ -20,6 +21,19 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	                }
 	            }
 	        },
+	        'button[action=print]': {
+	        	click: function(){
+	        		var gridPanel = this.getCarGridPanel(), partPanel = this.getPartGridPanel(), containerPartPanel = this.getContainerPartGridPanel(), parts = [], infos = [];
+	        		
+	        		partPanel.getStore().each(function(record, index) { parts.push(record.data); });
+	        		containerPartPanel.getStore().each(function(record, index) {record.data.seqno = index + 1; infos.push(record.data); });
+                    Ext.getDom('JrPrt').printSender(
+                    		JSON.stringify(gridPanel.getSelectionModel().getLastSelected().data), 
+                    		JSON.stringify(parts), 
+                    		JSON.stringify(infos)
+            		);
+	    		}
+	    	},
 	        'button[action=submit]': {
 	        	click: function(){
 	                var gridPanel = this.getCarGridPanel(), me = this;
@@ -117,6 +131,11 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	// 数据集合默认选中第一行
     reloadSubViews: function(record) { 
         this.getPartGridPanel().getStore().load({
+            params: {
+            	car: record ? record.get("car") : '-1'
+            }
+        });
+        this.getContainerPartGridPanel().getStore().load({
             params: {
             	car: record ? record.get("car") : '-1'
             }

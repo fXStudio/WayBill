@@ -13,7 +13,7 @@ import cn.fxtech.pfatwebsite.models.MDcarbill;
 public interface MDcarbillMapper {
 	@Select("SELECT * FROM v_carbill WHERE exists ( "
 			+ "  select print_descrip from v_printgroup where  print_descrip = cdescrip and group_name = #{groupName}"
-			+ ") and outdate is null ORDER BY printdate, cast(REPLACE(CODE, '-', '') as int), name")
+			+ ") and outdate is null ORDER BY id, cpageno")
 	public List<MDcarbill> findAll(@Param("groupName") String groupName);
 
 	@Insert("INSERT INTO CAR_PAGENO(CAR, PAGENO, RECORDDATE, EMP, DOORNO, sequence) VALUES("

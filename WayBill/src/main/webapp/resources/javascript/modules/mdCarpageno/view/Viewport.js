@@ -3,7 +3,8 @@ Ext.define('MDCarpagenoModule.view.Viewport', {
 
     requires: [
        'MDCarpagenoModule.view.CarGrid', 
-       'MDCarpagenoModule.view.PartGrid'
+       'MDCarpagenoModule.view.PartGrid', 
+       'MDCarpagenoModule.view.ContainerPartGrid'
     ],
     
     layout: 'border',
@@ -13,7 +14,14 @@ Ext.define('MDCarpagenoModule.view.Viewport', {
     	region: 'north',
         height: 320
     }, {
-    	xtype: 'partgrid',
-    	region: 'center'
+    	xtype: 'tabpanel', 
+    	region: 'center',
+    	items: [{
+    		title: '装载配货单详细信息',
+        	xtype: 'partgrid'
+        }, {
+        	title: '总成汇总',
+        	xtype: 'containerpartgrid'
+        }]
     }]
 });

@@ -35,7 +35,7 @@ public class FreeMarkerController {
 		model.addAttribute("modelName", path);
 
 		// 载入Applet组件
-		if ("mdOrder".equals(path)) {
+		if ("mdOrder".equals(path) || "mdCarpageno".equals(path)) {
 			model.addAttribute("hasApplet", true);
 		}
 		return "func";

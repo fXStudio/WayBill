@@ -20,7 +20,27 @@ public class JdApplet extends Applet {
 	 * @param order
 	 * @param parts
 	 */
-	public void printMethod(String order, String parts) {
+	public void printSender(String sender, String parts, String infos) {
+		String urlbase = "senderPrint?";
+
+		try {
+			URL url = new URL(getCodeBase(), urlbase + "sender=" + URLEncoder.encode(sender) + "&parts="
+					+ URLEncoder.encode(parts) + "&infos=" + URLEncoder.encode(infos));
+
+			printAction((JasperPrint) JRLoader.loadObject(url));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, "打印执行失败，更多信息请查看运行日志");
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Print Kanban
+	 * 
+	 * @param order
+	 * @param parts
+	 */
+	public void printKanban(String order, String parts) {
 		String urlbase = "kanbanPrint?";
 
 		try {

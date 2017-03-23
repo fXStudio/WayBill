@@ -1,6 +1,6 @@
-Ext.define('MDCarpagenoModule.view.PartGrid', {
+Ext.define('MDCarpagenoModule.view.ContainerPartGrid', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.partgrid',
+	alias: 'widget.containerpartgrid',
 
     selModel: { checkOnly: true },
     defaults: { sortable: true },
@@ -13,17 +13,13 @@ Ext.define('MDCarpagenoModule.view.PartGrid', {
         header: '序号',
     	width: 50
 	}, {
-        header: '配置单号',
-        width: 120,
-        dataIndex: 'pageno'
-    }, {
         header: '零件名称',
-        width: 240,
-        dataIndex: 'name'
+        width: 180,
+        dataIndex: 'partno'
     }, {
-        header: '架子号',
-        width: 70,
-        dataIndex: 'code'
+        header: '数量',
+        width: 100,
+        dataIndex: 'partcount'
     }],
     
     /**
@@ -31,7 +27,7 @@ Ext.define('MDCarpagenoModule.view.PartGrid', {
      */
     initComponent: function() {
         // Copy properties to Origin Object
-        Ext.apply(this, { store: Ext.create('MDCarpagenoModule.store.Part') });
+        Ext.apply(this, { store: Ext.create('MDCarpagenoModule.store.ContainerPart') });
         
         // Call Parent Constructor
         this.callParent(arguments);

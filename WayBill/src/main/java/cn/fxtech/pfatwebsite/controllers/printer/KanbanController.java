@@ -1,4 +1,4 @@
-package cn.fxtech.pfatwebsite.controllers.kanban;
+package cn.fxtech.pfatwebsite.controllers.printer;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;

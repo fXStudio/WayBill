@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.fxtech.pfatwebsite.mappers.MDcarpagenoMapper;
 import cn.fxtech.pfatwebsite.messages.FeedBackMessage;
 import cn.fxtech.pfatwebsite.models.MDcarpageno;
+import cn.fxtech.pfatwebsite.models.MDcontainerpart;
 import cn.fxtech.pfatwebsite.services.IMDcarpagenoService;
 
 @Repository
@@ -56,5 +57,10 @@ final class MDcarpagenoService implements IMDcarpagenoService {
 			e.printStackTrace();
 		}
 		return new FeedBackMessage(false, "撤销装载失败");
+	}
+
+	@Override
+	public List<MDcontainerpart> findContainerPartByCar(String car) {
+		return carpagenoMapper.findContainerPartByCar(car);
 	}
 }
