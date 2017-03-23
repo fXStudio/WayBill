@@ -39,7 +39,12 @@ Ext.define('MdOrderModule.view.OrderGrid', {
         Ext.apply(this, {
             store: store,
             tbar: Ext.create('Ext.toolbar.Toolbar', {
-                items: [{
+                items: [ {
+                    text: '确认发运',
+                    hidden: true,
+                    iconCls: 'commit_ok',
+                    action: 'send'
+                }, {
                     text: '添加',
                     iconCls: 'add',
                     action: 'add'
@@ -47,11 +52,11 @@ Ext.define('MdOrderModule.view.OrderGrid', {
                     text: '修改',
                     iconCls: 'update',
                     action: 'modify'
-                }, '-', {
+                }, {
                     text: '删除',
                     iconCls: 'del',
                     action: 'del'
-                }, '|', {
+                }, {
                     text: '打印',
                     iconCls: 'printer',
                     action: 'print'
@@ -60,6 +65,7 @@ Ext.define('MdOrderModule.view.OrderGrid', {
                     fieldLabel: '客户',
                     labelWidth: 45,
                     name: 'destination',
+                    width: 160,
                     store: Ext.create('MdOrderModule.store.Destination'),
                     displayField: 'destination',
                     valueField: 'destination',
@@ -74,7 +80,37 @@ Ext.define('MdOrderModule.view.OrderGrid', {
             	        	me.getSelectionModel().select(0);
                     	}
                     }
-                }]
+                }, Ext.create('Ext.form.ComboBox', {
+                    fieldLabel: '状态',
+                    labelWidth: 45, // label的默认宽度
+                    labelAlign: 'right',
+                    width: 180,
+                    editable: false,
+                    store: Ext.create('Ext.data.Store', {
+                    	autoLoad: true,
+                        fields: ['id', 'status'],
+                        data : [
+                            {"id": "1", "status": "已创建未扫描"},
+                            {"id": "2", "status": "已扫描未完成"},
+                            {"id": "3", "status": "已扫描未发运"}
+                        ]
+                    }),
+                    value: '已创建未扫描',
+                    name: 'dtype',
+                    displayField: 'status',
+                    valueField: 'status',
+                    listeners: {
+                    	change: function(obj, newval, oldval){
+                    		store.load({params: {
+                    			status: newval
+                    		}});
+                    		me.down('button[action=send]').setVisible(newval === '已扫描未发运');
+                    		Ext.each(['button[action=add]', 'button[action=modify]', 'button[action=del]'], function(val, index) {
+                        		me.down(val).setVisible(newval === '已创建未扫描');
+                    		});
+                    	}
+                    }
+                })]
             }),
             bbar: ['->', '查询订单',{
 	                xtype: 'textfield',

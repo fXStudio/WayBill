@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import cn.fxtech.pfatwebsite.models.MDorder;
 import tk.mybatis.mapper.common.Mapper;
@@ -19,17 +20,19 @@ public interface MDorderMapper extends Mapper<MDorder> {
 
 	@Select("SELECT a.id, a.car, a.destination, a.orderno, b.destination ordertype, a.send_date"
 			+ " FROM terminal_order a inner join terminal_destination b on a.destination = b.id"
-			+ " WHERE status = '未发出'"
-			+ " ORDER BY send_date")
+			+ " WHERE status = #{status}" + " ORDER BY send_date")
 	@Results({ @Result(column = "send_date", property = "sendDate") })
-	public List<MDorder> findAll();
+	public List<MDorder> findAll(String status);
 
 	@Delete("DELETE FROM terminal_orderpart WHERE orderid = #{orderid}")
 	public void deleteOrderPart(@Param("orderid") Integer id);
 
 	@Select("SELECT a.id, a.car, a.destination, a.orderno, b.destination ordertype, a.send_date, status"
 			+ " FROM terminal_order a inner join terminal_destination b on a.destination = b.id and dtype= #{dtype}"
-			+ " WHERE  status != '已发出' " + " ORDER BY send_date")
+			+ " WHERE  status != '已发运' " + " ORDER BY send_date")
 	@Results({ @Result(column = "send_date", property = "sendDate") })
 	public List<MDorder> findCreatedOrder(@Param("dtype") String dtype);
+
+	@Update("update terminal_order set status = '已发运' where id = #{id}")
+	public int send(@Param("id") Integer id);
 }

@@ -20,8 +20,8 @@ final class MDorderService implements IMDorderService {
 	private @Autowired MDorderMapper orderMapper;
 
 	@Override
-	public List<MDorder> findAll() {
-		return orderMapper.findAll();
+	public List<MDorder> findAll(String status) {
+		return orderMapper.findAll(status);
 	}
 
 	@Override
@@ -59,5 +59,10 @@ final class MDorderService implements IMDorderService {
 	@Override
 	public List<MDorder> findCreatedOrder(String dtype) {
 		return orderMapper.findCreatedOrder(dtype);
+	}
+
+	@Override
+	public Object send(Integer id) {
+		return new FeedBackMessage(orderMapper.send(id) > 0, "系统错误. 请查看运行日志.");
 	}
 }
