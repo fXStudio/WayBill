@@ -13,7 +13,7 @@ public interface STsenderMapper {
 			+ " group by CTFASS")
 	public List<STsender> findSender(@Param("startDate") String startDate, @Param("endDate") String endDate);
 
-	@Select("select partno partno, count(id) partcount, '运单' type from terminal_orderpart "
+	@Select("select partno partno, sum(pkgcount * pkgquantity) partcount, '运单' type from terminal_orderpart "
 			+ " where orderid in ( select id from terminal_order where status='已发运' and "
 			+ " send_date between #{startDate} and #{endDate})" + " group by partno")
 	public List<STsender> findOrder(@Param("startDate") String startDate, @Param("endDate") String endDate);

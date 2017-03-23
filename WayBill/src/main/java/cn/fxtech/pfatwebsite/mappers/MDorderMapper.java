@@ -29,7 +29,7 @@ public interface MDorderMapper extends Mapper<MDorder> {
 
 	@Select("SELECT a.id, a.car, a.destination, a.orderno, b.destination ordertype, a.send_date, status"
 			+ " FROM terminal_order a inner join terminal_destination b on a.destination = b.id and dtype= #{dtype}"
-			+ " WHERE  status != '已发运' " + " ORDER BY send_date")
+			+ " WHERE  status != '已发运' and status != '已扫描未发运' " + " ORDER BY send_date")
 	@Results({ @Result(column = "send_date", property = "sendDate") })
 	public List<MDorder> findCreatedOrder(@Param("dtype") String dtype);
 

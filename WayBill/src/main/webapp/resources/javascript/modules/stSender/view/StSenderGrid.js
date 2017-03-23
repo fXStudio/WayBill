@@ -47,7 +47,7 @@ Ext.define('StSenderModule.view.StSenderGrid', {
     	   	        xtype: 'datefield',
     	   	        format: 'Y-m-d H:i',
     	   	        allowBlank: false,
-    	   	        width: 180,
+    	   	        width: 220,
     	   			value: Ext.Date.add(new Date(), Ext.Date.DAY, -1)
             	}, {
                 	name: 'endDate',
@@ -58,7 +58,7 @@ Ext.define('StSenderModule.view.StSenderGrid', {
     	   	        allowBlank: false,
     	   	        xtype: 'datefield',
     	   	        format: 'Y-m-d H:i',
-    	   	        width: 180,
+    	   	        width: 220,
     	   			value: new Date()
     	   	   }, '|' , {
     	   		   	name: 'sender',

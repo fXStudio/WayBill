@@ -133,6 +133,9 @@ Ext.define('MdOrderModule.view.OrderpartGrid', {
             }, {
                 header: '零件数量',
                 dataIndex: 'totalcount',
+                renderer: function(metadata, val, record){
+                	return record.get('pkgcount') * record.get('pkgquantity');
+                },
                 width:90,
                 align: 'right',
                 field: {

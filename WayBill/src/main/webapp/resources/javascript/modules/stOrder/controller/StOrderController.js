@@ -23,6 +23,9 @@ Ext.define('StOrderModule.controller.StOrderController', {
 	        'ordergrid': {
 	    		select: function(view, record, item, index){
 					this.getPartPanel().getStore().load({params: { orderid: record.data.id }});
+	    		},
+	    		filterchange: function() {
+	    			this.getPartPanel().getStore().removeAll();
 	    		}
 	    	},
 	    	'orderpartgrid tool[type=maximize]': {

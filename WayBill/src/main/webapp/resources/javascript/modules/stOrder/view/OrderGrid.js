@@ -38,7 +38,7 @@ Ext.define('StOrderModule.view.OrderGrid', {
         // Copy properties to Origin Object
         Ext.apply(this, {
             store: store,
-            bbar: ['->',{
+            tbar: ['->', {
                 xtype: 'combobox',
                 fieldLabel: '客户',
                 labelWidth: 45,
@@ -57,7 +57,33 @@ Ext.define('StOrderModule.view.OrderGrid', {
         	        	me.getSelectionModel().select(0);
                 	}
                 }
-            },  '查询订单',{
+            }, Ext.create('Ext.form.ComboBox', {
+                fieldLabel: '状态',
+                labelWidth: 45, // label的默认宽度
+                labelAlign: 'right',
+                width: 180,
+                editable: false,
+                store: Ext.create('Ext.data.Store', {
+                	autoLoad: true,
+                    fields: ['id', 'status'],
+                    data : [
+                        {"id": "1", "status": "已创建未扫描"},
+                        {"id": "2", "status": "已扫描未完成"},
+                        {"id": "3", "status": "已扫描未发运"}
+                    ]
+                }),
+                value: '已创建未扫描',
+                name: 'dtype',
+                displayField: 'status',
+                valueField: 'status',
+                listeners: {
+                	change: function(obj, newval, oldval){
+                		store.load({params: {
+                			status: newval
+                		}});
+                	}
+                }
+            }),  '查询订单',{
 	                xtype: 'textfield',
 	                name: 'searchField',
 	                selectOnFocus: true,
