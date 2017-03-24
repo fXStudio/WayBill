@@ -10,7 +10,7 @@ import cn.fxtech.pfatwebsite.models.STsendertimes;
 public interface STsendertimesMapper {
 	@Select("select sum(times) times, destination, car, '准时化' type "
 			+ " from ( select max(1) times, '' destination, car from car_pageno"
-			+ " where outrecorddate between #{startDate} and #{endDate} group by car)"
+			+ " where outrecorddate between #{startDate} and #{endDate} group by car, outrecorddate)"
 			+ " a group by destination, car")
 	public List<STsendertimes> findSender(@Param("startDate") String startDate, @Param("endDate") String endDate);
 
