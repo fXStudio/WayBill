@@ -68,10 +68,9 @@ Ext.define('StOrderModule.controller.StOrderController', {
 	 onLaunch: function() {
 		    // 获得数据源对象
 		    var me = this, gridPanel = this.getGridPanel(), store = gridPanel.getStore();
-		    store.load();
-
-		    // 设置首行选中
-	        store.on("load", function(obj, records) {
+		    store.load({params: {
+		    	status: '已创建未扫描'
+		    }}).on("load", function(obj, records) {
 	        	gridPanel.getSelectionModel().deselectAll();
 				me.getPartPanel().getStore().removeAll();
 	        	gridPanel.getSelectionModel().select(0);
