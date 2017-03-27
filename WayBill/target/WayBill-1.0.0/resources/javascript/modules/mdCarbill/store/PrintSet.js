@@ -7,7 +7,7 @@ Ext.define('MdCarbillModule.store.PrintSet', {
     proxy: {
         type : 'ajax',
         actionMethods: { read: 'POST' },
-        url : 'services/printsetList',//请求
+        url : 'services/printgroupList',//请求
         reader: {
             type: 'json',
             root: 'items',

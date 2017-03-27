@@ -82,14 +82,14 @@ Ext.define('StSenderTimesModule.view.StSenderTimesGrid', {
     	   		   text: '查询报表',
     	   		   iconCls: 'search',
     	   		   action: 'search'
-    	   	   }]
+    	   	   }, '-',{
+ 	   		   text: '导出报表',
+		   		   iconCls: 'excel',
+		   		   disabled: true,
+		   		   action: 'export'
+		   	   }]
             }),
-            bbar: [{
-  	   		   text: '导出报表',
-	   		   iconCls: 'excel',
-	   		   disabled: true,
-	   		   action: 'export'
-	   	   },'->', {
+            bbar: ['->', {
                 xtype: 'combobox',
                 fieldLabel: '客户',
                 labelWidth: 45,

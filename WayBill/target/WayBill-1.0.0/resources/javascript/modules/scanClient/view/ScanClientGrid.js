@@ -5,6 +5,7 @@ Ext.define('ScanClientModule.view.ScanClientGrid', {
     enableColumnHide: false,
 	sortableColumns: false,
 	enableColumnMove: false,
+	scroll: false,
     columns: [{ 
         dataIndex: 'id',
         header: 'MES运单',

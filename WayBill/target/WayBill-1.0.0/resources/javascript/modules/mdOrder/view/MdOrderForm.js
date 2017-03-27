@@ -18,7 +18,7 @@ Ext.define('MdOrderModule.view.MdOrderForm', {
         hideLabel: true
     }, {
         name: 'status',
-        value: '未发出',
+        value: '已创建未扫描',
         hidden: true,
         hideLabel: true
     },{
@@ -52,6 +52,11 @@ Ext.define('MdOrderModule.view.MdOrderForm', {
         store: Ext.create('MdOrderModule.store.Car'),
         displayField: 'car',
         valueField: 'car',
-	    editable: false
+	    editable: false,
+	    listConfig: {
+	        getInnerTpl: function() {
+	            return '<div data-qtip="{car}. {destination}">{car} <b style="margin-left:10px;">[ {destination} ]</b></div>';
+	        }
+	    }
     }]
 });

@@ -18,6 +18,10 @@ Ext.define('MdCarInfoModule.view.MdCarInfoGrid', {
         width: 120,
         dataIndex: 'car'
     }, {
+        header: '目的地',
+        width: 160,
+        dataIndex: 'destination'
+    }, {
         header: '备注',
         width: 240,
         dataIndex: 'remark'

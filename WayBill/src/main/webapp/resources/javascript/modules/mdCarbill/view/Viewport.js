@@ -10,7 +10,7 @@ Ext.define('MdCarbillModule.view.Viewport', {
     items: [{
         xtype: 'tfassnamegrid',
         region: 'west',
-        width: 240
+        width: 180
     }, {
         xtype: 'mdcarbillgrid',
         region: 'center'

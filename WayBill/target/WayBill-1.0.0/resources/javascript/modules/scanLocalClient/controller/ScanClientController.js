@@ -145,7 +145,7 @@ Ext.define('ScanLocalClientModule.controller.ScanClientController', {
      */
 	onLaunch: function() {
 		var gridPanel = this.getGridPanel(), partPanel = this.getPartPanel();
-	    this.getGridPanel().getStore().load({params: {dtype:'本地'}}).on('load', function(){
+	    this.getGridPanel().getStore().load({params: {dtype:'长春'}}).on('load', function(){
 	    	gridPanel.show();
 	    	partPanel.hide();
 	    	Ext.getCmp('searchField').focus();

@@ -104,7 +104,6 @@ Ext.define('MdOrderModule.view.OrderpartGrid', {
                 width: 140,
                 dataIndex: 'orderno',
                 field: {
-                	id: 'orderno',
                     selectOnFocus: true,
                     xtype: 'textfield'
                 }
@@ -114,6 +113,7 @@ Ext.define('MdOrderModule.view.OrderpartGrid', {
                 width: 60,
                 align: 'right',
                 field: {
+                	id: 'pkgcount',
                     xtype: 'numberfield',
                     selectOnFocus: true,
                     allowBlank: false,
@@ -133,6 +133,9 @@ Ext.define('MdOrderModule.view.OrderpartGrid', {
             }, {
                 header: '零件数量',
                 dataIndex: 'totalcount',
+                renderer: function(metadata, val, record){
+                	return record.get('pkgcount') * record.get('pkgquantity');
+                },
                 width:90,
                 align: 'right',
                 field: {
@@ -206,7 +209,7 @@ Ext.define('MdOrderModule.view.OrderpartGrid', {
             		if(!rowEditing.editing && !rowEditing.executing){
             		    rowEditing.startEdit(index, 0);
                         Ext.getCmp('totalcount').setValue(Ext.getCmp('distotalcount').getValue());
-        	            Ext.getCmp('orderno').focus(true, 100);
+        	            Ext.getCmp('pkgcount').focus(true, 100);
             	    }
             	}
             }

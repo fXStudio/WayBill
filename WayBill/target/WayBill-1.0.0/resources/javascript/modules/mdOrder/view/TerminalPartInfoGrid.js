@@ -18,6 +18,11 @@ Ext.define('MdOrderModule.view.TerminalPartInfoGrid', {
         Ext.apply(this, {
         	store: store,
             selType: 'checkboxmodel',
+            selModel: {
+            	allowDeselect: true,
+                mode: "SIMPLE", 
+                enableKeyNav: false
+            },
             columns: [ {
                 header: '总成号',
                 width: 160,
@@ -38,7 +43,6 @@ Ext.define('MdOrderModule.view.TerminalPartInfoGrid', {
             }],
             bbar: ['->', '查询零件',{
                 xtype: 'textfield',
-                name: 'searchField',
                 selectOnFocus: true,
                 hideLabel: true,
                 width: 200,

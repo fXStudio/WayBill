@@ -39,12 +39,44 @@ Ext.define('MdOrderModule.controller.MdOrderController', {
 	    			this.getPartPanel().getStore().removeAll();
 	    		}
 	    	},
+	        'button[action=send]': {
+	        	click: function(){
+	        		var gridObj = this.getGridPanel();
+	                var sm = this.getGridPanel().getSelectionModel();// 获得grid的SelectionModel
+	                
+	                // 如果选中行无效，则不相应用户的删除操作
+	                if (sm.getSelection().length < 1) {
+	                    return false;
+	                }
+	                
+	                Ext.MessageBox.confirm('确认发运', '要提交订单发运状态吗?', function(res) {
+	                    if (res === 'yes') { // 用户确认要执行删除操作
+	                        Ext.Ajax.request({
+	                            url: 'services/orderSend',
+	                            params: { id: sm.getLastSelected().get('id') },
+	                            method: 'POST',
+	                            success: function(response, options) {
+                                    gridObj.getStore().reload();
+                                    Ext.Msg.alert('确认发运', '已确认发运订单');
+	                            },
+		                        failure: function(form, action) { // 添加失败后，提示用户添加异常
+		                        	try{
+		                        		Ext.Msg.alert('失败', '操作未完成，原因：' + action.result.failureReason);
+		                        	} catch(e){
+		                        		Ext.Msg.alert('失败', '操作未完成，原因：程序错误，请查看运行日志.');
+		                        	}
+		                        }
+	                        });
+	                    }
+	                });
+	    		}
+	    	},
 	        'button[action=print]': {
 	        	click: function(){
 	        		var gridPanel = this.getGridPanel(),  partPanel = this.getPartPanel(),  parts = [];
 	        		
 	        		partPanel.getStore().each(function(record, index) {record.data.id = index + 1;  parts.push(record.data); });
-                    Ext.getDom('JrPrt').printMethod(
+                    Ext.getDom('JrPrt').printKanban(
                     		JSON.stringify(gridPanel.getSelectionModel().getLastSelected().data), 
                     		JSON.stringify(parts)
             		);
@@ -225,17 +257,19 @@ Ext.define('MdOrderModule.controller.MdOrderController', {
       */
 	 onLaunch: function() {
 		    // 获得数据源对象
-		    var me = this, gridPanel = this.getGridPanel(), store = gridPanel.getStore();
-		    store.load();
-
-		    // 设置首行选中
-	        store.on("load", function(obj, records){
+		    var me = this, gridPanel = this.getGridPanel(), partPanel = this.getPartPanel(), store = gridPanel.getStore();
+		    
+		    store.load({params: {
+		    	status: '已创建未扫描'
+		    }}).on("load", function(obj, records){
 	        	gridPanel.getSelectionModel().deselectAll();
+	        	partPanel.getStore().removeAll();
 	        	Ext.getCmp('addBtn').setDisabled(true);
 	        	
 	        	gridPanel.down('button[action=modify]').setDisabled(!records.length);
 	        	gridPanel.down('button[action=del]').setDisabled(!records.length);
 	        	gridPanel.down('button[action=print]').setDisabled(!records.length);
+	        	gridPanel.down('button[action=send]').setDisabled(!records.length);
 	        	
 	        	gridPanel.getSelectionModel().select(0);
 	        })

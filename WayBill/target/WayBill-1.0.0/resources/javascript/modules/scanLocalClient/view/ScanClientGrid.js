@@ -5,10 +5,11 @@ Ext.define('ScanLocalClientModule.view.ScanClientGrid', {
     enableColumnHide: false,
 	sortableColumns: false,
 	enableColumnMove: false,
+	scroll: false,
     columns: [{ 
         dataIndex: 'id',
         header: 'MES运单',
-    	width: 90
+    	width: 85
 	}, {
         header: '发货时间',
         width: 125,

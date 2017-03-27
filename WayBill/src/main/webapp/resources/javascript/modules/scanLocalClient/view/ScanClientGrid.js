@@ -9,7 +9,7 @@ Ext.define('ScanLocalClientModule.view.ScanClientGrid', {
     columns: [{ 
         dataIndex: 'id',
         header: 'MES运单',
-    	width: 85
+    	width: 90
 	}, {
         header: '发货时间',
         width: 125,

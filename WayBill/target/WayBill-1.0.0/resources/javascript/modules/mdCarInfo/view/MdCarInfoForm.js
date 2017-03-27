@@ -24,6 +24,11 @@ Ext.define('MdCarInfoModule.view.MdCarInfoForm', {
         selectOnFocus: true,
         allowBlank: false
     }, {
+        fieldLabel: '目的地',
+        name: 'destination',
+        selectOnFocus: true,
+        allowBlank: false
+    }, {
         fieldLabel: '备注',
         name: 'remark',
         selectOnFocus: true,

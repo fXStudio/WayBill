@@ -2,7 +2,6 @@ Ext.define('MDCarpagenoModule.view.PartGrid', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.partgrid',
 
-	tbar: [ '<strong>装载配货单详细信息</strong>' ],
     selModel: { checkOnly: true },
     defaults: { sortable: true },
 	enableColumnHide: false,
