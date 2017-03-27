@@ -20,6 +20,14 @@ Ext.define('StSenderModule.controller.StSenderController', {
 	                }
 	            }
 	        },
+	        'stsendergrid': {
+	        	select: function(){
+	        		this.getGridPanel().down('button[action=export]').setDisabled(false);
+	        	},
+	        	filterchange: function(){
+	        		this.getGridPanel().down('button[action=export]').setDisabled(this.getGridPanel().getStore().getCount() === 0);
+	        	}
+	        },
 	        'button[action=search]': {
 	        	'click': function(){
 		        	var gridPanel = this.getGridPanel(), store = gridPanel.getStore();
@@ -30,6 +38,28 @@ Ext.define('StSenderModule.controller.StSenderController', {
 		        		sender: gridPanel.down('checkbox[name=sender]').getValue(),
 		        		order: gridPanel.down('checkbox[name=order]').getValue()
 		        	}});
+	        	}
+	        },
+	        'button[action=export]': {
+	        	'click': function(){
+	        		var gridPanel = this.getGridPanel(), meta = [], data = [];
+	        		
+	        		// statistics grid panel meta data.
+	        		Ext.each(gridPanel.columns, function(col, index){ if(col.dataIndex) {meta.push(col.text);} });
+	        		// statistics grid panel records.
+	        		gridPanel.getStore().each(function(rec){ data.push(rec.data); });
+	        		
+	    			Ext.Ajax.request({
+	    			      url:"services/exportData",
+	    			      method: 'post',
+	    			      params: {
+	    			    	  meta: JSON.stringify(meta),
+	    			    	  data: JSON.stringify(data)
+	    			      },
+	    			      success:function(res){
+	    			          window.location.href = eval("(" + res.responseText + ")").path;
+	    			      }
+	    			});
 	        	}
 	        }
         })
@@ -44,6 +74,8 @@ Ext.define('StSenderModule.controller.StSenderController', {
 
 	    // 设置首行选中
         store.on("load", function(){
+        	gridPanel.down('button[action=export]').setDisabled(true);
+        	
         	gridPanel.getSelectionModel().deselectAll();
         	gridPanel.getSelectionModel().select(0);
         })

@@ -80,7 +80,12 @@ Ext.define('StSenderModule.view.StSenderGrid', {
     	   		   action: 'search'
     	   	   }]
             }),
-            bbar: ['->', '查询名称',{
+            bbar: [{
+ 	   		   text: '导出报表',
+		   		   iconCls: 'excel',
+		   		   disabled: true,
+		   		   action: 'export'
+		   	   },'->', '查询名称',{
 	                xtype: 'textfield',
 	                name: 'searchField',
 	                selectOnFocus: true,

@@ -16,7 +16,7 @@ public interface MDterminalgroupMapper {
 	@Insert("INSERT INTO terminal_group (group_name, remark) VALUES (#{groupName}, #{remark})")
 	public int insertRecord(MDterminalgroup group);
 
-	@Select("select id, group_name, remark from terminal_group")
+	@Select("select id, group_name, remark from terminal_group order by group_name")
 	@Results({ @Result(column = "group_name", property = "groupName") })
 	public List<MDterminalgroup> findAll();
 

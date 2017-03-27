@@ -18,6 +18,11 @@ Ext.define('MdOrderModule.view.TerminalPartInfoGrid', {
         Ext.apply(this, {
         	store: store,
             selType: 'checkboxmodel',
+            selModel: {
+            	allowDeselect: true,
+                mode: "SIMPLE", 
+                enableKeyNav: false
+            },
             columns: [ {
                 header: '总成号',
                 width: 160,

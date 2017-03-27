@@ -16,6 +16,6 @@ public interface MDprintsetMapper {
 			+ " select group_id from terminal_groupprint where printset_id = iprintgroupid and group_id = #{groupId})")
 	public List<MDprintset> find(@Param("groupId") Integer groupId);
 
-	@Select("select group_name cDescrip from terminal_group")
+	@Select("select group_name cDescrip from terminal_group order by group_name")
 	public List<MDprintset> listPrintGroup();
 }

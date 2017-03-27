@@ -21,7 +21,7 @@ final class MDcarinfoService implements IMDcarinfoService {
 
 	@Override
 	public List<MDcarinfo> findAll() {
-		return carinfoMapper.selectAll();
+		return carinfoMapper.findAll();
 	}
 
 	@Override

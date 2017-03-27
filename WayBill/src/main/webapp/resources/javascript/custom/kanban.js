@@ -15,7 +15,7 @@ $(document).ready(function(){
 						var panel = $('<div class="panel panel-default">');
 						var heading = (
 								$('<div class="panel-heading">').append('<div class="row">').append(
-										$('<div class="col-sm-3">').append($('<span class="doorno">').html(buffer.length + 1))
+										$('<div class="col-sm-3">').append($('<span class="doorno">').html(key.toString().split(/ /)[0]))
 								).append(
 										$('<div class="col-sm-9">').append(
 												$('<p class="car-info">').html(key.match(/\(.+\)/g).toString().replace(/[()null]/g, ""))

@@ -18,7 +18,7 @@ Ext.define('MdOrderModule.view.MdOrderForm', {
         hideLabel: true
     }, {
         name: 'status',
-        value: '未发出',
+        value: '已创建未扫描',
         hidden: true,
         hideLabel: true
     },{

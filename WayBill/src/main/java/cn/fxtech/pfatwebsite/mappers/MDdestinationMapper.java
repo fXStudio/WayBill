@@ -9,7 +9,7 @@ import cn.fxtech.pfatwebsite.models.MDdestination;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface MDdestinationMapper extends Mapper<MDdestination> {
-	@Select("SELECT * FROM terminal_destination")
+	@Select("SELECT * FROM terminal_destination order by dtype")
 	public List<MDdestination> findAll();
 
 	@Insert("INSERT INTO terminal_destination (destination, dtype) VALUES (#{destination}, #{dtype})")
