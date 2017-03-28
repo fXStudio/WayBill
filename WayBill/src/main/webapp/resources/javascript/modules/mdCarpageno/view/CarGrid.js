@@ -41,6 +41,7 @@ Ext.define('MDCarpagenoModule.view.CarGrid', {
                 items: [{
                     text: '打印运单',
                     iconCls: 'printer',
+                    disabled: true,
                     action: 'print'
                 },'->', {
                     text: '确认发货',

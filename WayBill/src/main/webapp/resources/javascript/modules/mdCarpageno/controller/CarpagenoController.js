@@ -106,6 +106,9 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	        'cargrid': {
 	        	itemclick: function(obj, record, e) {
 	            	this.reloadSubViews(record);
+	            },
+	            select: function(){
+	            	this.getCarGridPanel().down('button[action=print]').setDisabled(false);
 	            }
 	        }
         })
@@ -123,6 +126,7 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 
 	    // 设置首行选中
         store.on("load", function(obj, records){
+        	gridPanel.down('button[action=print]').setDisabled(true);
         	gridPanel.getSelectionModel().deselectAll();
         	gridPanel.getSelectionModel().select(0);
         	me.reloadSubViews(records[0]);
