@@ -36,7 +36,7 @@ Ext.define('ScanLocalClientModule.view.ScanClientGrid', {
 	                id: 'searchField',
 	                selectOnFocus: true,
 	                hideLabel: true,
-	                width: 160,
+	                width: 128,
 	                listeners: {
 	                	specialkey: function(field, e){
 	    	                if (e.getKey() == e.ENTER) {
