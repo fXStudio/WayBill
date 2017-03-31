@@ -12,6 +12,15 @@ public class MDcarbill {
 	private String cardate;
 	private String outdate;
 	private String pagenostate;
+	private String cp6;
+
+	public String getCp6() {
+		return cp6;
+	}
+
+	public void setCp6(String cp6) {
+		this.cp6 = cp6;
+	}
 
 	public String getCpageno() {
 		return cpageno;
