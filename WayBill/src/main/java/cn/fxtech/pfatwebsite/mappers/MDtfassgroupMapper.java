@@ -24,7 +24,7 @@ public interface MDtfassgroupMapper {
 	@Results({ @Result(column = "group_name", property = "groupName") })
 	public List<MDtfassgroup> find(MDtfassgroup group);
 
-	@Delete("delete from terminal_groupprint where group_id = #{id};delete from terminal_tfassgroup where id = #{id}")
+	@Delete("delete from terminal_tfassgroup where group_id = #{id};delete from terminal_tfassrelation where id = #{id}")
 	public int del(@Param("id") Integer id);
 
 	@Update("update terminal_tfassgroup set group_name = #{groupName}, remark = #{remark} where id = #{id}")
