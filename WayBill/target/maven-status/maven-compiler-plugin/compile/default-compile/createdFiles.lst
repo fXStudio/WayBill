@@ -33,8 +33,8 @@ cn\fxtech\pfatwebsite\models\MDorderpart.class
 cn\fxtech\pfatwebsite\controllers\md\MDcarinfoController.class
 cn\fxtech\pfatwebsite\models\STkanban.class
 cn\fxtech\pfatwebsite\services\IMDprintsetService.class
-cn\fxtech\pfatwebsite\mappers\MDterminalgroupMapper.class
 cn\fxtech\pfatwebsite\services\ISTkanbanService.class
+cn\fxtech\pfatwebsite\mappers\MDterminalgroupMapper.class
 cn\fxtech\pfatwebsite\services\impl\STsendertimesService.class
 cn\fxtech\pfatwebsite\controllers\md\MDpartinfoController.class
 cn\fxtech\pfatwebsite\controllers\md\MDterminalgroupController.class
@@ -56,10 +56,10 @@ cn\fxtech\pfatwebsite\controllers\printer\KanbanController.class
 cn\fxtech\pfatwebsite\services\IMDdoorService.class
 cn\fxtech\pfatwebsite\mappers\STkanbanMapper.class
 cn\fxtech\pfatwebsite\models\MDcarinfo.class
+cn\fxtech\pfatwebsite\services\ISTsenderService.class
 cn\fxtech\pfatwebsite\caches\KeyUtil.class
 cn\fxtech\pfatwebsite\models\MDpartinfo.class
 cn\fxtech\pfatwebsite\services\impl\MDdoorService.class
-cn\fxtech\pfatwebsite\services\ISTsenderService.class
 cn\fxtech\pfatwebsite\mappers\MDorderpartMapper.class
 cn\fxtech\pfatwebsite\mappers\MDorderMapper.class
 cn\fxtech\pfatwebsite\controllers\FreeMarkerController.class
