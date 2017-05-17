@@ -1,6 +1,7 @@
 package cn.fxtech.pfatwebsite.models;
 
 public class MDprintset {
+	private String ccartypedesc;
 	private String cdescrip;
 	private Integer iprintgroupid;
 
@@ -18,5 +19,13 @@ public class MDprintset {
 
 	public void setIprintgroupid(Integer iprintgroupid) {
 		this.iprintgroupid = iprintgroupid;
+	}
+
+	public String getCcartypedesc() {
+		return ccartypedesc;
+	}
+
+	public void setCcartypedesc(String ccartypedesc) {
+		this.ccartypedesc = ccartypedesc;
 	}
 }

@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 import cn.fxtech.pfatwebsite.models.STkanban;
 
 public interface STkanbanMapper {
-	@Select("SELECT * FROM v_kanban ORDER BY doorno,  printdate, cast(REPLACE(CODE, '-', '') as int), cdescrip")
+	@Select("SELECT * FROM v_board ORDER BY doorno,  printdate, cast(REPLACE(CODE, '-', '') as int), cdescrip")
 	public List<STkanban> findAll();
 }
