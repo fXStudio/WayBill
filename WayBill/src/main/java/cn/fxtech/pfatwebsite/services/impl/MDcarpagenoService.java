@@ -26,17 +26,16 @@ final class MDcarpagenoService implements IMDcarpagenoService {
 	}
 
 	@Override
-	public List<MDcarpageno> findPartByCar(String car) {
-		log.debug("Select part in car: " + car);
-		return carpagenoMapper.findPartByCar(car);
+	public List<MDcarpageno> findPartByCar(String doorno) {
+		log.debug("Select part in car: " + doorno);
+		return carpagenoMapper.findPartByCar(doorno);
 	}
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public FeedBackMessage update(String car, String emp) {
+	public FeedBackMessage update(String doorno, String car, String emp) {
 		try {
-			carpagenoMapper.update(car, emp);
-			carpagenoMapper.delCar(car);
+			carpagenoMapper.update(doorno, car, emp);
 			
 			return new FeedBackMessage(true);
 		} catch (Exception e) {
@@ -47,10 +46,9 @@ final class MDcarpagenoService implements IMDcarpagenoService {
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public FeedBackMessage del(String car) {
+	public FeedBackMessage del(String doorno) {
 		try {
-			carpagenoMapper.del(car);
-			carpagenoMapper.delCar(car);
+			carpagenoMapper.del(doorno);
 			
 			return new FeedBackMessage(true);
 		} catch (Exception e) {

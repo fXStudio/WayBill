@@ -45,15 +45,14 @@ public class MDcarbillController {
 	}
 
 	@RequestMapping(value = "carbillModify")
-	public Object carbillModify(@RequestParam(value = "car") String car, @RequestParam(value = "pageno") String pageno,
+	public Object carbillModify(@RequestParam(value = "pageno") String pageno,
 			@RequestParam(value = "doorno") String doorno, HttpServletRequest request) {
-		log.info(car);
 		log.info(pageno);
 		log.info(doorno);
 		
 		keyutil.setKey(System.currentTimeMillis());
 
-		return carbillService.insertCarpageno(car, pageno, (String) request.getSession().getAttribute("username"),
+		return carbillService.insertCarpageno(pageno, (String) request.getSession().getAttribute("username"),
 				doorno);
 	}
 }

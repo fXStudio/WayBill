@@ -3,6 +3,7 @@ Ext.define('MdCarbillModule.model.MdCarbillModel', {
 	
 	fields: [
 	    'cpageno', 'cdescrip', 'name', 'code', 'car', 'printdate',
-	    'outpnostate', 'partdate', 'cardate', 'outdate', 'pagenostate','cpsix','cp6'
+	    'outpnostate', 'partdate', 'cardate', 'outdate', 'pagenostate','cpsix','cp6',
+	    'doorno'
     ]
 });

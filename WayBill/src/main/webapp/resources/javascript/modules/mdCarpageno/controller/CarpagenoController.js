@@ -3,6 +3,7 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
     refs: [
        {ref: 'partGridPanel', selector: 'partgrid'},
        {ref: 'carGridPanel', selector: 'cargrid'},
+       {ref: 'carWindow', selector: 'carinfowindow'},
        {ref: 'containerPartGridPanel', selector: 'containerpartgrid'}
     ],
     
@@ -15,7 +16,7 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	                    gridPanel.getStore().filter({
 	                        filterFn: function(item) {
 	                            return !field.getValue() || 
-	                                   item.get("car") && item.get("car").indexOf(field.getValue()) > -1; 
+	                                   item.get("doorno") && item.get("doorno").indexOf(field.getValue()) > -1; 
 	                        }
 	                    });
 	                }
@@ -39,30 +40,17 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	                var gridPanel = this.getCarGridPanel(), me = this;
 	                
 	                if(gridPanel.getSelectionModel().selected.length){
-	                	 // 提示用户确认删除操作
-		                Ext.MessageBox.confirm('确认删除', '要提交车辆已发出确认吗?', function(res) {
-		                    if (res === 'yes') { // 用户确认要执行删除操作
-				                Ext.Ajax.request({
-			                         url: 'services/pagenoModify',
-			                         params: {
-			                        	 car: gridPanel.getSelectionModel().getSelection()[0].get('car')
-			                         },
-			                         method: 'POST',
-			                         success: function(response, options) {
-		                         			var store = gridPanel.getStore();
-		                         			
-		                         			store.load();
-		                         			store.on("load", function(obj, records){
-		                         	        	gridPanel.getSelectionModel().select(0);
-		                         	        	me.reloadSubViews(records[0]);
-		                         	        });
-			                         },
-			                         failure: function(response, action) {
-			                             Ext.MessageBox.alert('失败', '操作失败：' + (action.result.failureReason || '系统异常'));
-			                         }
-			                   });
-		                    }
-		                });
+	                	// 获得窗体对象的引用
+		            	var win = this.getCarWindow();
+		            	// 判断窗体对象是否存在, 如果不存在，就创建一个新的窗体对象
+		            	if(!win){win = Ext.create('MDCarpagenoModule.view.CarInfoWindow');}
+		            	
+		            	Ext.getCmp('carinfogrid').getStore().load().on('load', function(){
+		            		Ext.getCmp('carinfogrid').getSelectionModel().deselectAll();
+		            	});
+		            	
+		                win.show(); // 显示窗体
+		                win.center();// 窗体居中显示
 	                } else {
 	                	Ext.MessageBox.alert('警告', '没有选中任何车辆信息');
 	                }
@@ -74,12 +62,12 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	                
 	                if(gridPanel.getSelectionModel().selected.length){
 	                	 // 提示用户确认删除操作
-		                Ext.MessageBox.confirm('确认删除', '确定要取消装载吗?', function(res) {
+		                Ext.MessageBox.confirm('取消装载', '确定要取消装载吗?', function(res) {
 		                    if (res === 'yes') { // 用户确认要执行删除操作
 				                Ext.Ajax.request({
 			                         url: 'services/pagenoDel',
 			                         params: {
-			                        	 car: gridPanel.getSelectionModel().getSelection()[0].get('car')
+			                        	 doorno: gridPanel.getSelectionModel().getSelection()[0].get('doorno')
 			                         },
 			                         method: 'POST',
 			                         success: function(response, options) {
@@ -136,12 +124,12 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
     reloadSubViews: function(record) { 
         this.getPartGridPanel().getStore().load({
             params: {
-            	car: record ? record.get("car") : '-1'
+            	doorno: record ? record.get("doorno") : '-1'
             }
         });
         this.getContainerPartGridPanel().getStore().load({
             params: {
-            	car: record ? record.get("car") : '-1'
+            	doorno: record ? record.get("doorno") : '-1'
             }
         });
     }

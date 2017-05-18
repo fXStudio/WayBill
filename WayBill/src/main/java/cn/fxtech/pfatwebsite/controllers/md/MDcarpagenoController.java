@@ -49,8 +49,8 @@ public class MDcarpagenoController {
 	 * @return
 	 */
 	@RequestMapping(value = "carpartList")
-	public Object carpartList(@RequestParam(value = "car", defaultValue = "-1") String car) {
-		List<MDcarpageno> list = carpagenoService.findPartByCar(car);
+	public Object carpartList(@RequestParam(value = "doorno", defaultValue = "-1") String doorno) {
+		List<MDcarpageno> list = carpagenoService.findPartByCar(doorno);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", list.size());// 记录总数
@@ -65,8 +65,8 @@ public class MDcarpagenoController {
 	 * @return
 	 */
 	@RequestMapping(value = "containerPartList")
-	public Object containerPartList(@RequestParam(value = "car", defaultValue = "-1") String car) {
-		List<MDcontainerpart> list = carpagenoService.findContainerPartByCar(car);
+	public Object containerPartList(@RequestParam(value = "doorno", defaultValue = "-1") String doorno) {
+		List<MDcontainerpart> list = carpagenoService.findContainerPartByCar(doorno);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", list.size());// 记录总数
@@ -78,20 +78,22 @@ public class MDcarpagenoController {
 	}
 
 	@RequestMapping(value = "pagenoModify")
-	public Object pagenoModify(@RequestParam(value = "car") String car, HttpServletRequest request) {
+	public Object pagenoModify(@RequestParam(value = "doorno") String doorno, 
+			@RequestParam(value = "car") String car,HttpServletRequest request) {
+		log.info(doorno);
 		log.info(car);
 
 		keyutil.setKey(System.currentTimeMillis());
 		
-		return carpagenoService.update(car, (String) request.getSession().getAttribute("username"));
+		return carpagenoService.update(doorno, car,  (String) request.getSession().getAttribute("username"));
 	}
 
 	@RequestMapping(value = "pagenoDel")
-	public Object pagenoDel(@RequestParam(value = "car") String car, HttpServletRequest request) {
-		log.info(car);
+	public Object pagenoDel(@RequestParam(value = "doorno") String doorno, HttpServletRequest request) {
+		log.info(doorno);
 
 		keyutil.setKey(System.currentTimeMillis());
 		
-		return carpagenoService.del(car);
+		return carpagenoService.del(doorno);
 	}
 }

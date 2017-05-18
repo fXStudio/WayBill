@@ -13,6 +13,7 @@ public class MDcarbill {
 	private String outdate;
 	private String pagenostate;
 	private String cp6;
+	private String doorno;
 
 	public String getCp6() {
 		return cp6;
@@ -108,5 +109,13 @@ public class MDcarbill {
 
 	public void setPagenostate(String pagenostate) {
 		this.pagenostate = pagenostate;
+	}
+
+	public String getDoorno() {
+		return doorno;
+	}
+
+	public void setDoorno(String doorno) {
+		this.doorno = doorno;
 	}
 }

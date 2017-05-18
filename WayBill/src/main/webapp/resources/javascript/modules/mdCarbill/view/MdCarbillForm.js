@@ -35,21 +35,5 @@ Ext.define('MdCarbillModule.view.MdCarbillForm', {
         displayField: 'name',
         valueField: 'name',
 	    editable: false
-    }, {
-        fieldLabel: '车牌号',
-        labelAlign: 'left',
-        xtype: 'combobox',
-        name: 'car',
-        id: 'car',
-        allowBlank: false,
-        store: Ext.create('MdCarbillModule.store.Car'),
-        displayField: 'car',
-        valueField: 'car',
-	    editable: false,
-	    listConfig: {
-	        getInnerTpl: function() {
-	            return '<div data-qtip="{car}. {destination}">{car} <b style="margin-left:10px;">[ {destination} ]</b></div>';
-	        }
-	    }
     }]
 });

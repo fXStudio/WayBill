@@ -27,15 +27,12 @@ final class MDcarbillService implements IMDcarbillService {
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public FeedBackMessage insertCarpageno(String car, String pageno, String emp, String doorno) {
+	public FeedBackMessage insertCarpageno(String pageno, String emp, String doorno) {
 		try {
-			int seq = carbillMapper.getSeq(car);
 			Timestamp date = new Timestamp(System.currentTimeMillis());
 
 			for (String pno : pageno.split(",")) {
-				carbillMapper.insertCarpageno(car, pno.trim(), emp, date, doorno, seq);
-				carbillMapper.delCarstate(car);
-				carbillMapper.insertCarstate(car, "1", date, emp);
+				carbillMapper.insertCarpageno(pno.trim(), emp, date, doorno);
 			}
 			return new FeedBackMessage(true);
 		} catch (Exception e) {

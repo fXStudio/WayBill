@@ -9,11 +9,11 @@ import cn.fxtech.pfatwebsite.models.MDcontainerpart;
 public interface IMDcarpagenoService {
 	public List<MDcarpageno> findAllCar();
 
-	public List<MDcarpageno> findPartByCar(String car);
+	public List<MDcarpageno> findPartByCar(String doorno);
 
-	public FeedBackMessage update(String car, String emp);
-	
-	public FeedBackMessage del(String car);
-	
-	public List<MDcontainerpart> findContainerPartByCar(String car);
+	public FeedBackMessage update(String doorno, String car, String emp);
+
+	public FeedBackMessage del(String doorno);
+
+	public List<MDcontainerpart> findContainerPartByCar(String doorno);
 }
