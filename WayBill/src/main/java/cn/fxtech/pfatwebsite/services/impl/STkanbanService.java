@@ -30,12 +30,12 @@ final class STkanbanService implements ISTkanbanService {
 		log.debug("Kanban items count: " + list.size());
 
 		for (STkanban kanban : list) {// 生成看板分类(按门号与车号组合进行分组)
-			String key = kanban.getDoorno() + " (" + kanban.getCar() + ") <p>" + kanban.getRecorddate() + "</p>";
+			String key = kanban.getDoorno() + " <p>" + kanban.getRecorddate() + "</p>";
 
 			if (!map.containsKey(key)) {
 				map.put(key, new ArrayList<STkanban>());
 			}
-			if (kanban.getCar() != null && kanban.getCar().trim().length() > 0) {
+			if (kanban.getDoorno() != null && kanban.getDoorno().trim().length() > 0) {
 				map.get(key).add(kanban);
 			}
 		}

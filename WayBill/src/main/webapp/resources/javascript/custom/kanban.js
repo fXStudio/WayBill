@@ -15,11 +15,9 @@ $(document).ready(function(){
 						var panel = $('<div class="panel panel-default">');
 						var heading = (
 								$('<div class="panel-heading">').append('<div class="row">').append(
-										$('<div class="col-sm-3">').append($('<span class="doorno">').html(key.toString().split(/ /)[0]))
+										$('<div class="col-md-3">').append($('<span class="doorno">').html(key.toString().split(/ /)[0]))
 								).append(
-										$('<div class="col-sm-9">').append(
-												$('<p class="car-info">').html(key.match(/\(.+\)/g).toString().replace(/[()null]/g, ""))
-									    ).append(
+										$('<div class="col-md-8 text-right">').append(
 									    		$('<p class="date-info">').html(key.match(/\d{2}-\d{2} \d{2}:\d{2}/g))
 										)
 								)
@@ -28,9 +26,9 @@ $(document).ready(function(){
 						
 						$.each(val, function(index, obj) {// 拼接零件的内容
 							var row = $('<div class="row">').append(
-									$('<div class="col-md-10">').append($('<span>').html(obj.cdescrip))
+									$('<div class="col-md-7">').append($('<span>').html(obj.cdescrip))
 							).append(
-									$('<div class="col-md-2">').append($('<span>').html(obj.code))
+									$('<div class="col-md-5 text-left">').append($('<span>').html(obj.code))
 							);
 							body.append(row);
 						});
@@ -83,7 +81,7 @@ $(document).ready(function(){
 				 $('.container-fluid > .row').append(node.fadeIn(2000)); 
 			 });
 		 }
-		 return setTimeout(function() { carosel(caller, buffer); }, 5000);
+		 return setTimeout(function() { carosel(caller, buffer); }, 10000);
 	}
 	
 	(function() {

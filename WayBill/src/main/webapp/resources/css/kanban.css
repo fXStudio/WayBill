@@ -1,10 +1,12 @@
 body, .panel-default {background-color: black; color: white;border:none;font-weight:bolder;margin:-20px 0px 0px 0px;}
-.kanban-col{padding:0px 30px;}
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { 
+	font-family: Microsoft YaHei,'ËÎÌו' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+.kanban-col{padding:0px 3px;}
 .jumbotron{color: black;font-size: 70pt;font-weight: bolder;}
 .jumbotron h3{font-size: 40pt;color:blue;}
-.panel-heading {padding:0px;margin-top:20px;}
-.panel-body{font-size:30pt;padding-left:3px;}
-.doorno{color:green;font-size:60pt;}
-.car-info, .date-info{font-size:24pt;}
-.car-info{color:white;margin-top:20px;}
-.date-info{color:yellow;margin-top:-12px;}
+.panel-heading {margin:10px 0 50px 0;}
+.panel-body{font-size:65px;padding-left:3px;}
+.panel-body .row{padding:0px 0;}
+.doorno{color:green;font-size:70pt;}
+.date-info{font-size:30pt;color:yellow;margin-top:-12px;}
