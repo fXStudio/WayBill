@@ -27,7 +27,7 @@ Ext.define('MdCarbillModule.controller.MdCarbillController', {
 	        	select: function(obj, record, index) {
 	                var gridPanel = this.getGridPanel(), cache = Ext.data.StoreManager.lookup('cache');
 	                
-	        		if (record.get("car")) {
+	        		if (record.get("doorno")) {
 						Ext.Msg.show({
 									title : '系统提示',
 									msg : '该配货单已装载',
@@ -61,8 +61,6 @@ Ext.define('MdCarbillModule.controller.MdCarbillController', {
 	            	// 在执行新增业务的时候，要把窗体的内容清空
 	                this.getFormPanel().getForm().reset();
 	                Ext.getCmp('door').getStore().reload();
-	                Ext.getCmp('car').getStore().reload();
-
 	            	
 	            	if(cache.getCount()) {
 	            		  var val = "";
@@ -99,6 +97,7 @@ Ext.define('MdCarbillModule.controller.MdCarbillController', {
 	                        url: 'services/carbillModify', // 请求的url地址  
 	                        method: 'POST', // 请求方式  
 	                        success: function(form, action) { // 添加数据成功后，重新加载数据源刷新表单 
+	                        	Ext.data.StoreManager.lookup('cache').removeAll();
 	                        	gridPanel.getStore().reload();
                         		Ext.Msg.alert('提示', '装载信息添加完成.');
 	                        },

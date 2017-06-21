@@ -2,7 +2,9 @@ cn\fxtech\pfatwebsite\services\impl\MDcarinfoService.class
 cn\fxtech\pfatwebsite\services\impl\KanbanService.class
 cn\fxtech\pfatwebsite\helper\StringHelper.class
 cn\fxtech\pfatwebsite\controllers\st\STpagepartController.class
+cn\fxtech\pfatwebsite\controllers\md\MDtfassgroupController.class
 cn\fxtech\pfatwebsite\services\impl\STsenderService.class
+cn\fxtech\pfatwebsite\services\IMDtfassgroupService.class
 cn\fxtech\pfatwebsite\controllers\down\FileDownloadController.class
 cn\fxtech\pfatwebsite\services\impl\STpagepartService.class
 cn\fxtech\pfatwebsite\mappers\MDcarpagenoMapper.class
@@ -11,6 +13,7 @@ cn\fxtech\pfatwebsite\controllers\md\MDdestinationController.class
 cn\fxtech\pfatwebsite\controllers\md\MDdoorController.class
 cn\fxtech\pfatwebsite\controllers\md\MDorderController.class
 cn\fxtech\pfatwebsite\services\ISTsendcompService.class
+cn\fxtech\pfatwebsite\mappers\MDtfassgroupMapper.class
 cn\fxtech\pfatwebsite\mappers\MDdestinationMapper.class
 cn\fxtech\pfatwebsite\controllers\st\STsendcompController.class
 cn\fxtech\pfatwebsite\services\IMDterminalgroupService.class
@@ -23,6 +26,7 @@ cn\fxtech\pfatwebsite\models\MDcarbill.class
 cn\fxtech\pfatwebsite\services\IMDorderpartService.class
 cn\fxtech\pfatwebsite\controllers\md\MDterminalscanController.class
 cn\fxtech\pfatwebsite\mappers\STsendcompMapper.class
+cn\fxtech\pfatwebsite\services\IMDtfassprintService.class
 cn\fxtech\pfatwebsite\controllers\md\MDcarpagenoController.class
 cn\fxtech\pfatwebsite\services\impl\MDpartinfoService.class
 cn\fxtech\pfatwebsite\services\impl\MDcarbillService.class
@@ -41,6 +45,7 @@ cn\fxtech\pfatwebsite\controllers\md\MDterminalgroupController.class
 cn\fxtech\pfatwebsite\models\MDorder.class
 cn\fxtech\pfatwebsite\services\impl\MDdestinationService.class
 cn\fxtech\pfatwebsite\services\impl\MDorderpartService.class
+cn\fxtech\pfatwebsite\services\impl\MDtfassgroupService.class
 cn\fxtech\pfatwebsite\mappers\STsendertimesMapper.class
 cn\fxtech\pfatwebsite\services\IMDterminalscanService.class
 cn\fxtech\pfatwebsite\services\impl\MDterminalgroupService.class
@@ -49,6 +54,7 @@ cn\fxtech\pfatwebsite\models\STsendcomp.class
 cn\fxtech\pfatwebsite\mappers\MDpartinfoMapper.class
 cn\fxtech\pfatwebsite\messages\FeedBackMessage.class
 cn\fxtech\pfatwebsite\excel\inters\IExcelExporter.class
+cn\fxtech\pfatwebsite\models\MDtfassgroup.class
 cn\fxtech\pfatwebsite\models\MDdoor.class
 cn\fxtech\pfatwebsite\helper\JasperTemplateLoader.class
 cn\fxtech\pfatwebsite\controllers\md\MDorderpartController.class
@@ -68,6 +74,7 @@ cn\fxtech\pfatwebsite\mappers\STsenderMapper.class
 cn\fxtech\pfatwebsite\models\MDdestination.class
 cn\fxtech\pfatwebsite\services\IMDcarpagenoService.class
 cn\fxtech\pfatwebsite\mappers\MDcarinfoMapper.class
+cn\fxtech\pfatwebsite\controllers\md\MDtfassprintController.class
 cn\fxtech\pfatwebsite\mappers\MDcarbillMapper.class
 cn\fxtech\pfatwebsite\controllers\md\MDcarbillController.class
 cn\fxtech\pfatwebsite\services\impl\MDorderService.class
@@ -76,6 +83,7 @@ cn\fxtech\pfatwebsite\controllers\st\STsenderController.class
 cn\fxtech\pfatwebsite\helper\BeanUtils.class
 cn\fxtech\pfatwebsite\services\impl\STsendcompService.class
 cn\fxtech\pfatwebsite\services\IMDorderService.class
+cn\fxtech\pfatwebsite\services\impl\MDtfassprintService.class
 cn\fxtech\pfatwebsite\services\IMDcarinfoService.class
 cn\fxtech\pfatwebsite\services\ISenderService.class
 cn\fxtech\pfatwebsite\models\STsendertimes.class
@@ -90,6 +98,7 @@ cn\fxtech\pfatwebsite\models\STpagepart.class
 cn\fxtech\pfatwebsite\services\impl\MDprintsetService.class
 cn\fxtech\pfatwebsite\models\STsender.class
 cn\fxtech\pfatwebsite\services\ISTpagepartService.class
+cn\fxtech\pfatwebsite\mappers\MDtfassprintMapper.class
 cn\fxtech\pfatwebsite\controllers\st\STsendertimesController.class
 cn\fxtech\pfatwebsite\services\IMDpartinfoService.class
 cn\fxtech\pfatwebsite\controllers\printer\SenderController.class

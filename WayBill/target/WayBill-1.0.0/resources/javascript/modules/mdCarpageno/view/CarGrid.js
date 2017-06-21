@@ -2,6 +2,7 @@ Ext.define('MDCarpagenoModule.view.CarGrid', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.cargrid',
 
+	id: 'cargrid',
 	tbar: [ '<strong>整车发货</strong>' ],
     selModel: { checkOnly: true },
     defaults: { sortable: true },

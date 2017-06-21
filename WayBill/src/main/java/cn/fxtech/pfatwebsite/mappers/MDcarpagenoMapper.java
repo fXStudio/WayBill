@@ -25,6 +25,6 @@ public interface MDcarpagenoMapper {
 	@Update("UPDATE car_pageno set outpnostate = 1, outrecorddate = getdate(), outemp = #{emp}, car=#{car} WHERE doorno= #{doorno} and outrecorddate is null")
 	public void update(@Param("doorno") String doorno, @Param("car") String car,@Param("emp") String emp);
 	
-	@Delete("DELETE car_pageno WHERE doorno= #{doorno}")
+	@Delete("DELETE car_pageno WHERE doorno= #{doorno} and outrecorddate is null")
 	public void del(@Param("doorno") String doorno);
 }
