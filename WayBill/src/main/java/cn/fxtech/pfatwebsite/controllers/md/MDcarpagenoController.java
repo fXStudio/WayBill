@@ -66,7 +66,7 @@ public class MDcarpagenoController {
 	 */
 	@RequestMapping(value = "containerPartList")
 	public Object containerPartList(@RequestParam(value = "doorno", defaultValue = "-1") String doorno) {
-		List<MDcontainerpart> list = carpagenoService.findContainerPartByCar(doorno);
+		List<MDcontainerpart> list = carpagenoService.findContainerPartByDoor(doorno);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", list.size());// 记录总数

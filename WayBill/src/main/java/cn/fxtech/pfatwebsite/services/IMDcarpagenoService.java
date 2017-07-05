@@ -15,5 +15,5 @@ public interface IMDcarpagenoService {
 
 	public FeedBackMessage del(String doorno);
 
-	public List<MDcontainerpart> findContainerPartByCar(String doorno);
+	public List<MDcontainerpart> findContainerPartByDoor(String doorno);
 }

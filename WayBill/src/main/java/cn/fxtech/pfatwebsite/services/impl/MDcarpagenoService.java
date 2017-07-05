@@ -58,7 +58,7 @@ final class MDcarpagenoService implements IMDcarpagenoService {
 	}
 
 	@Override
-	public List<MDcontainerpart> findContainerPartByCar(String car) {
-		return carpagenoMapper.findContainerPartByCar(car);
+	public List<MDcontainerpart> findContainerPartByDoor(String doorno) {
+		return carpagenoMapper.findContainerPartByDoor(doorno);
 	}
 }

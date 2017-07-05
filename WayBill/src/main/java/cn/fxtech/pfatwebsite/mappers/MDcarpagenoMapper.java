@@ -18,9 +18,9 @@ public interface MDcarpagenoMapper {
 	public List<MDcarpageno> findPartByCar(String doorno);
 	
 	@Select("select partname partno, COUNT(id) partcount from dbo.pageno_part where exists ("
-			+ " SELECT cpageno FROM v_carbill WHERE car = #{car} AND outpnostate is null and CPAGENO = pageno"
+			+ " SELECT cpageno FROM v_carbill WHERE doorno = #{doorno} AND outpnostate is null and CPAGENO = pageno"
 			+ " ) group by partname")
-	public List<MDcontainerpart> findContainerPartByCar(String car);
+	public List<MDcontainerpart> findContainerPartByDoor(String doorno);
 
 	@Update("UPDATE car_pageno set outpnostate = 1, outrecorddate = getdate(), outemp = #{emp}, car=#{car} WHERE doorno= #{doorno} and outrecorddate is null")
 	public void update(@Param("doorno") String doorno, @Param("car") String car,@Param("emp") String emp);
