@@ -25,14 +25,23 @@ Ext.define('MDCarpagenoModule.controller.CarpagenoController', {
 	        'button[action=print]': {
 	        	click: function(){
 	        		var gridPanel = this.getCarGridPanel(), partPanel = this.getPartGridPanel(), containerPartPanel = this.getContainerPartGridPanel(), parts = [], infos = [];
+	        		var data = gridPanel.getSelectionModel().getLastSelected().data;
 	        		
 	        		partPanel.getStore().each(function(record, index) { parts.push(record.data); });
 	        		containerPartPanel.getStore().each(function(record, index) {record.data.seqno = index + 1; infos.push(record.data); });
-                    Ext.getDom('JrPrt').printSender(
-                    		JSON.stringify(gridPanel.getSelectionModel().getLastSelected().data), 
-                    		JSON.stringify(parts), 
-                    		JSON.stringify(infos)
-            		);
+                    
+                    Ext.Ajax.request({
+	    			      url:"services/senderExport",
+	    			      method: 'post',
+	    			      params: {
+	    			    	  sender: JSON.stringify(data),
+	    			    	  parts: JSON.stringify(parts),
+	    			    	  infos: JSON.stringify(infos)
+	    			      },
+	    			      success:function(res){
+	    			          window.location.href = eval("(" + res.responseText + ")").path + "/" + Ext.util.Format.date(data.recorddate, 'Ymd-His');
+	    			      }
+	    			});
 	    		}
 	    	},
 	        'button[action=submit]': {
