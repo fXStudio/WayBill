@@ -74,12 +74,21 @@ Ext.define('MdOrderModule.controller.MdOrderController', {
 	        'button[action=print]': {
 	        	click: function(){
 	        		var gridPanel = this.getGridPanel(),  partPanel = this.getPartPanel(),  parts = [];
+	        		var data = gridPanel.getSelectionModel().getLastSelected().data;
 	        		
 	        		partPanel.getStore().each(function(record, index) {record.data.id = index + 1;  parts.push(record.data); });
-                    Ext.getDom('JrPrt').printKanban(
-                    		JSON.stringify(gridPanel.getSelectionModel().getLastSelected().data), 
-                    		JSON.stringify(parts)
-            		);
+                    
+                    Ext.Ajax.request({
+	    			      url:"services/kanbanExport",
+	    			      method: 'post',
+	    			      params: {
+	    			    	  order: JSON.stringify(data),
+	    			    	  parts: JSON.stringify(parts)
+	    			      },
+	    			      success:function(res){
+	    			          window.location.href = eval("(" + res.responseText + ")").path + "/" + data.orderno;
+	    			      }
+	    			});
 	    		}
 	    	},
 	    	'button[action=addPart]':{

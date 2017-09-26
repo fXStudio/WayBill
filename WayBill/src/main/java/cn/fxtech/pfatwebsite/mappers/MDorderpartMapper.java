@@ -11,7 +11,7 @@ import tk.mybatis.mapper.common.Mapper;
 
 public interface MDorderpartMapper extends Mapper<MDorderpart> {
 	@Insert(" INSERT INTO terminal_orderpart (partno, pkgcount, totalcount, orderid, pkgquantity, orderno, partdesc, isscan) "
-			+ " select #{partno}, #{pkgcount}, #{totalcount}, #{orderid}, #{pkgquantity}, orderno, #{partdesc} , #{isscan}"
+			+ " select #{partno}, #{pkgcount}, #{pkgcount*pkgquantity}, #{orderid}, #{pkgquantity}, orderno, #{partdesc} , #{isscan}"
 			+ " from terminal_order where id = #{orderid}")
 	public int insertRecord(MDorderpart part);
 
