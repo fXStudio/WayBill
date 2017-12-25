@@ -14,17 +14,21 @@ public interface MDcarpagenoMapper {
 	@Select("SELECT car, max(recorddate) recorddate, doorno FROM car_pageno WHERE outrecorddate is null GROUP BY car, doorno ORDER BY recorddate")
 	public List<MDcarpageno> findAllCar();
 
-	@Select("SELECT cpageno pageno, doorno, cardate recorddate, name, code FROM v_carbill WHERE doorno = #{doorno} AND outpnostate is null order by cast(REPLACE(CODE, '-', '') as int)")
+	@Select("SELECT cpageno pageno, doorno, cardate recorddate, name, code "
+			+ "  FROM v_carbill "
+			+ "  WHERE doorno = #{doorno} AND outpnostate is null "
+			+ "  GROUP BY cpageno, doorno, cardate, name, code"
+			+ "  ORDER BY cast(REPLACE(CODE, '-', '') as int)")
 	public List<MDcarpageno> findPartByCar(String doorno);
 	
-	@Select("select partname partno, COUNT(id) partcount from dbo.pageno_part where exists ("
-			+ " SELECT cpageno FROM v_carbill WHERE doorno = #{doorno} AND outpnostate is null and CPAGENO = pageno"
-			+ " ) group by partname")
+	@Select("SELECT partname partno, COUNT(id) partcount from dbo.pageno_part WHERE exists ("
+			+ "  SELECT cpageno FROM v_carbill WHERE doorno = #{doorno} AND outpnostate is null AND CPAGENO = pageno"
+			+ " ) GROUP BY partname")
 	public List<MDcontainerpart> findContainerPartByDoor(String doorno);
 
-	@Update("UPDATE car_pageno set outpnostate = 1, outrecorddate = getdate(), outemp = #{emp}, car=#{car} WHERE doorno= #{doorno} and outrecorddate is null")
+	@Update("UPDATE car_pageno SET outpnostate = 1, outrecorddate = getdate(), outemp = #{emp}, car=#{car} WHERE doorno= #{doorno} and outrecorddate is null")
 	public void update(@Param("doorno") String doorno, @Param("car") String car,@Param("emp") String emp);
 	
-	@Delete("DELETE car_pageno WHERE doorno= #{doorno} and outrecorddate is null")
+	@Delete("DELETE car_pageno WHERE doorno= #{doorno} AND outrecorddate is null")
 	public void del(@Param("doorno") String doorno);
 }
